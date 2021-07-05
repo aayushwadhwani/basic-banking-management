@@ -1,11 +1,16 @@
 <?php
+    $users = "";
     include('config/db_connect.php');
     $query = "SELECT * FROM users;";
     $result = mysqli_query($conn,$query);
     if($result){
         $users = mysqli_fetch_all($result,MYSQLI_ASSOC);
+    }else{
+        // echo "Query error: ".mysqli_error($conn);
+        $users = false;
     }
-    print_r($users);
+    mysqli_free_result($result);
+    mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -25,20 +30,22 @@
 <body>
     <?php include('templates/header.php');?>
     <div class="container">
-        <?if(isset($users)) {?>
+        <?php if($users) {?>
         <div class="row user-div">
             <?php foreach($users as $user){ ?>
             <div class="col-12 bg-light mt-5 mb-2 w-100 rounded">
-                <p class="details-adjust"> <span class="ml-4">Name: <?php echo $user['username']?></span><span class="email-span">Email: <?php echo $user['email']?></span><span class="amount-span">Amount: Rs.<?php echo $user['amount']?></span></p>
+                <p class="details-adjust"> <span class="ml-4">Name: <?php echo $user['username'] ?></span><span class="email-span">Email: <?php echo $user['email']?></span><span class="amount-span">Amount: Rs.<?php echo $user['amount']?></span></p>
                 <hr>
                 <div class="mb-3">
-                    <a href="" class="info-button"><button class="btn btn-outline-info rounded">View Info</button></a>
+                    <a href="info-page.php?id=<?php echo $user['id'];?>" class="info-button"><button class="btn btn-outline-info rounded">View Info</button></a>
                     <a href="" class="transaction-button"><button class="btn btn-outline-info rounded">Do A Transaction</button></a>
                 </div>
             </div>
             <?php }?>
         </div>
-        <? }?>
+        <?php }else {?>
+            <h1 class="text-center m-5 text-danger font-weight-bolder">Not connected to database.</h1>
+        <?php }?>
     </div>
     <?php include('templates/footer.php');?>
 </body>

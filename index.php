@@ -9,7 +9,7 @@
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
     <link rel="stylesheet" href="Styles/navbar.css?v=<?php echo time(); ?>">
-    <title></title>
+    <title>Home Page</title>
 </head>
 <body>
     <?php include('templates/header.php'); ?>
