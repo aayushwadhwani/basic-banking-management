@@ -1,0 +1,32 @@
+.navbar-style{
+    background-color: #343A40;
+    height: 100px ;
+    font-size: large;
+} 
+
+.navbar-color{
+    color: #E1E8EB;
+}
+
+.navbar-color:hover{
+    color: limegreen;
+}
+
+.footer-height{
+    height: 100px;
+    color: #E1E8EB;
+    background-color: #343A40;
+}
+
+.brand-size{
+    font-size: x-large;
+    margin-left: 25px;
+}
+
+.footer-font{
+    font-size: larger;
+}
+
+body{
+    background-color: #E1E8EB
+}

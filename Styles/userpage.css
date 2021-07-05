@@ -1,0 +1,26 @@
+.details-adjust{
+    font-size: x-large;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.email-span{
+    margin-left: 150px;
+    /* color: rgb(113, 113, 124); */
+}
+
+.amount-span{
+    margin-left: 150px;
+}
+
+.transaction-button{
+    margin-left: 323px;
+}
+
+.info-button{
+    margin-left: 200px;
+}
+
+.user-div{
+    width: 100% !important;
+}
