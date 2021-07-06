@@ -12,35 +12,51 @@
     <link rel="stylesheet" href="Styles/transaction.css?v=<?php echo time(); ?>">
     <title>Document</title>
 </head>
+<?php
+    include('config/db_connect.php');
+    $id = mysqli_real_escape_string($conn,$_GET['id']);
+    $result = "";
+    if(isset($_GET['id'])){
+        $query = "SELECT email,username,amount FROM users where id=$id";
+        $result = mysqli_query($conn,$query);
+        if($result){
+            $infoOfSender = mysqli_fetch_assoc($result);
+            print_r($infoOfSender);
+        }
+        mysqli_free_result($result);
+    }
+?>
 <body>
     <?php include('Templates/header.php');?>
     <div class="container-fluid w-75 bg-light text-dark mt-5">
         <div class="row p-3">
             <div class="col-4 text-center">
-                <h4>From: Aayush Wadhwani</h4>
+                <h4>From: <?php echo $infoOfSender['username'];?> </h4>
             </div>
             <div class="col-4">
-                <h4>Current Balance: Rs.100000000</h4>
+                <h4>Current Balance: Rs. <?php echo $infoOfSender['amount'];?> </h4>
             </div>
             <div class="col-4">
-                <h4>Email: aayush@gmail.commmmm</h4>
+                <h4>Email:  <?php echo $infoOfSender['email'];?></h4>
             </div>
         </div>
     </div>
     <div class="container w-50 text-center bg-light text-dark p-4 mt-5 ml-auto mr-auto rounded">
-        <form action="">
-            <input type="hidden" value=1235 >
+        <form action="" class="form-validation">
+            <input type="hidden" value= <?php echo $infoOfSender['email'];?> >
             <p class="mb-0">
-                <label for="email ">To: (Email)</label>
+                <label for="email">To: (Email)</label>
             </p>
             <p class="mt-0">
-                <input type="email" placeholder="maria@gmail.com">
+                <input type="email" name="to" placeholder="maria@gmail.com">
+                <p class="text-danger" >Email Should have a domain and less than 60 characters long. Also can't transfer money to <?php echo $infoOfSender['email'];?> </p>
             </p>
             <p class="mb-0">
-                <label for="email ">Amount:</label>
+                <label for="email">Amount:</label>
             </p>
             <p class="mt-0">
-                <input type="number" placeholder="12345">
+                <input type="number" name="amount" placeholder="12345">
+                <p class="text-danger" >Amount cannot be negative. Also can't transfer money to <?php echo $infoOfSender['email'];?> </p>
             </p>
             <p class="mt-0">
                 <input type="submit" value="Make Transaction">
@@ -48,5 +64,6 @@
         </form>   
     </div>
     <?php include('Templates/footer.php');?>
+    <script src="script/transaction-regex.js?<?php echo time(); ?>"></script>
 </body>
 </html>

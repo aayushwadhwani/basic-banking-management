@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="Styles/navbar.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="Styles/info-page.css?v=<?php echo time(); ?>">
+    <title>Information |</title>
+</head>
 <?php
     include('config/db_connect.php');
     $details = "";
@@ -15,21 +29,6 @@
     mysqli_free_result($result);
     mysqli_close($conn);
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- bootstrap link -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="Styles/navbar.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="Styles/info-page.css?v=<?php echo time(); ?>">
-    <title>Information | <?php echo $details['username'];?></title>
-</head>
 <body>
     <?php include("Templates/header.php");?>
     <?php if($details) {?>

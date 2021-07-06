@@ -1,18 +1,3 @@
-<?php
-    $users = "";
-    include('config/db_connect.php');
-    $query = "SELECT * FROM users;";
-    $result = mysqli_query($conn,$query);
-    if($result){
-        $users = mysqli_fetch_all($result,MYSQLI_ASSOC);
-    }else{
-        // echo "Query error: ".mysqli_error($conn);
-        $users = false;
-    }
-    mysqli_free_result($result);
-    mysqli_close($conn);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,6 +12,20 @@
     <link rel="stylesheet" href="Styles/userpage.css?v=<?php echo time(); ?>">
     <title>Users Details</title>
 </head>
+<?php
+    $users = "";
+    include('config/db_connect.php');
+    $query = "SELECT * FROM users;";
+    $result = mysqli_query($conn,$query);
+    if($result){
+        $users = mysqli_fetch_all($result,MYSQLI_ASSOC);
+    }else{
+        // echo "Query error: ".mysqli_error($conn);
+        $users = false;
+    }
+    mysqli_free_result($result);
+    mysqli_close($conn);
+?>
 <body>
     <?php include('templates/header.php');?>
     <div class="container-fluid width-container">
@@ -38,7 +37,7 @@
                 <hr>
                 <div class="mb-3">
                     <a href="info-page.php?id=<?php echo $user['id'];?>" class="info-button"><button class="btn btn-outline-info rounded">View Info</button></a>
-                    <a href="" class="transaction-button"><button class="btn btn-outline-info rounded">Do A Transaction</button></a>
+                    <a href="transaction.php?id=<?php echo $user['id'];?>" class="transaction-button"><button class="btn btn-outline-info rounded">Do A Transaction</button></a>
                 </div>
             </div>
             <?php }?>

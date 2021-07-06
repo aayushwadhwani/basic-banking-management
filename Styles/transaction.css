@@ -26,3 +26,15 @@ label{
     font-size: 26px;
     font-weight: 500;
 }
+
+input:focus{
+    outline: none;
+}
+
+.success{
+    border-color: greenyellow;
+}
+
+.error{
+    border-color: red;
+}
