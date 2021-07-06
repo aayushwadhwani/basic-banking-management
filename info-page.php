@@ -28,12 +28,12 @@
 
     <link rel="stylesheet" href="Styles/navbar.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="Styles/info-page.css?v=<?php echo time(); ?>">
-    <title>Information | </title>
+    <title>Information | <?php echo $details['username'];?></title>
 </head>
 <body>
     <?php include("Templates/header.php");?>
     <?php if($details) {?>
-    <div class="container w-50 text-center bg-light font-size  p-3 text-dark mt-5">
+    <div class="container-fluid w-50 text-center bg-light font-size  p-3 text-dark mt-5">
         <p class=" mt-2 mb-2 font-weight-bolder">Customer Name: </p>
         <p class=" mt-2 mb-2"><?php echo $details['username']?></p>
         <p class=" mt-2 mb-2 font-weight-bolder">Email: </p>
@@ -44,7 +44,7 @@
         <p class=" mt-2 mb-2"><?php echo $details['createdAt']?></p>
     </div>
     <h1 class="text-center m-5">Transaction History</h1>
-    <div class="container p-5">
+    <div class="container-fluid w-75 p-5">
         <div class="row bg-success p-3 rounded">
             <div class="col-12 m-auto">
                 <div class="row text-center font-p">

@@ -29,7 +29,7 @@
 </head>
 <body>
     <?php include('templates/header.php');?>
-    <div class="container">
+    <div class="container-fluid width-container">
         <?php if($users) {?>
         <div class="row user-div">
             <?php foreach($users as $user){ ?>

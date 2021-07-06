@@ -6,3 +6,10 @@ create table users(
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
     PRIMARY KEY (id)
 );
+
+alter table users ADD unique (email);
+
+create table transactions(
+    id int not null AUTO_INCREMENT,
+    
+)
