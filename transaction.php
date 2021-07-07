@@ -100,7 +100,7 @@
             </div>
         </div>
     </div>
-    <div class="container w-50 text-center bg-light text-dark p-4 mt-5 ml-auto mr-auto rounded">
+    <div class="container w-50 text-center bg-light text-dark p-4 m-5 ml-auto mr-auto rounded">
         <form action="transaction.php?id=<?php echo $id ?>" class="form-validation" method="POST">
             <input type="hidden" name="from" value=<?php echo $infoOfSender['email']; ?>>
             <p class="mb-0">
@@ -124,8 +124,8 @@
         <p class="text-danger"> <span class="font-weight-bold">Note:</span> Email Should have a domain and less than 60 characters long. Also can't transfer money to <?php echo $infoOfSender['email']; ?> </p>
         <p class="text-danger"><span class="font-weight-bold">Note:</span>Amount cannot be negative. Also can't transfer money to <?php echo $infoOfSender['email']; ?> </p>
     </div>
-    <?php include('Templates/footer.php'); ?>
     <script src="script/transaction-regex.js?<?php echo time(); ?>"></script>
+    <?php include('Templates/footer.php'); ?>
 </body>
 
 </html>

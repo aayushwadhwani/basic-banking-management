@@ -33,11 +33,30 @@
         <div class="row user-div">
             <?php foreach($users as $user){ ?>
             <div class="col-12 bg-light mt-5 mb-2 w-100 rounded">
-                <p class="details-adjust"> <span class="ml-4">Name: <?php echo $user['username'] ?></span><span class="email-span">Email: <?php echo $user['email']?></span><span class="amount-span">Amount: Rs.<?php echo $user['amount']?></span></p>
+                <div class="container text-center">
+                    <div class="row justify-content-around  details-adjust">
+                        <div class="col-4">
+                            <span class="">Name: <?php echo $user['username'] ?></span>
+                        </div>
+                        <div class="col-4">
+                            <span class="">Email: <?php echo $user['email']?></span>
+                        </div>
+                        <div class="col-4">
+                            <span class="">Amount: Rs.<?php echo $user['amount']?></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- <p class="details-adjust"> <span class="ml-4">Name: <?php echo $user['username'] ?></span><span class="email-span">Email: <?php echo $user['email']?></span><span class="amount-span">Amount: Rs.<?php echo $user['amount']?></span></p> -->
                 <hr>
-                <div class="mb-3">
-                    <a href="info-page.php?id=<?php echo $user['id'];?>" class="info-button"><button class="btn btn-outline-info rounded">View Info</button></a>
-                    <a href="transaction.php?id=<?php echo $user['id'];?>" class="transaction-button"><button class="btn btn-outline-info rounded">Do A Transaction</button></a>
+                <div class="mb-3 container text-center">
+                    <div class="row justify-content around">
+                        <div class="col-6">
+                            <a href="info-page.php?id=<?php echo $user['id'];?>" class="info-button"><button class="btn btn-outline-info rounded">View Info</button></a>
+                        </div>
+                        <div class="col-6">
+                            <a href="transaction.php?id=<?php echo $user['id'];?>" class="transaction-button"><button class="btn btn-outline-info rounded">Do A Transaction</button></a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <?php }?>
