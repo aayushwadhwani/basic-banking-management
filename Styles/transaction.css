@@ -8,12 +8,14 @@ input{
     padding: 10px;
     font-size: 20px;
     border-radius: 10px;
+    border-color: white;
 }
 
 input[type=submit]{
     width: 200px;
     margin-top: 15px;
     border-radius: 6px;
+    border-color: rgba(0, 0, 0,0.3);
 }
 
 input[type=submit]:hover{

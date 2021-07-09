@@ -20,3 +20,5 @@ create table transactions(
 )
 
 alter table transactions ADD amount int;
+
+insert into users(username,email,amount) values0('Dylan Forsyth', 'dylan.forsyth@email.com', 10000);

@@ -21,13 +21,16 @@
         $result = mysqli_query($conn,$query);
         if($result){
             $details = mysqli_fetch_assoc($result);
-            print_r($details);
         }else{
             echo "Query Error: ".mysqli_error($conn);
         }
+        $query = "SELECT * FROM transactions WHERE from_id=$id";
+        $result = mysqli_query($conn,$query);
+        $transactionHistory = mysqli_fetch_all($result,MYSQLI_ASSOC);
+        print_r($transactionHistory);
     }
     mysqli_free_result($result);
-    mysqli_close($conn);
+
 ?>
 <body>
     <?php include("Templates/header.php");?>
@@ -43,25 +46,36 @@
         <p class=" mt-2 mb-2"><?php echo $details['createdAt']?></p>
     </div>
     <h1 class="text-center m-5">Transaction History</h1>
-    <div class="container-fluid w-75 p-5">
-        <div class="row bg-success p-3 rounded">
-            <div class="col-12 m-auto">
-                <div class="row text-center font-p">
-                    <div class="col-4">
-                        <span class="font-weight-bolder font-to">To: </span> aayush@gmail.com
+    <?php if(!empty($transactionHistory[0]['id'])) { ?>
+        <div class="container-fluid w-75 p-5 mx-auto">
+            <div class="row p-3 rounded">
+                <?php foreach($transactionHistory as $transaction) { ?>
+                    <?php 
+                        $to_id = $transaction['to_id'];
+                        $query = "SELECT email from users where id=$to_id";
+                        $result = mysqli_query($conn,$query);
+                        $emailOfReciever = mysqli_fetch_assoc($result);
+                    ?>
+                    <div class="col-12 my-3 p-3 bg-light">
+                        <div class="row text-center font-p">
+                            <div class="col-4">
+                                <span class="font-weight-bolder font-to">To: </span> <?php echo $emailOfReciever['email']; ?>
+                            </div>
+                            <div class="col-4">
+                                <span class="font-weight-bolder span-on">On Date: </span> <?php echo $transaction['transactionDate']; ?>
+                            </div>
+                            <div class="col-4">
+                                <span class="font-weight-bolder font-amount">Amount: </span> Rs.<?php echo $transaction['amount']; ?>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-4">
-                        <span class="font-weight-bolder span-on">On Date: </span>11/11/1111 11:11:11
-                    </div>
-                    <div class="col-4">
-                        <span class="font-weight-bolder font-amount">Amount: </span> Rs.10000
-                    </div>
-                </div>
-                <!-- <p class="m-3 font-p"><span class="font-weight-bolder font-to">To: </span> aayush@gmail.com <span class="font-weight-bolder span-on">On Date: </span>11/11/1111 11:11:11<span class="font-weight-bolder font-amount">Amount: </span> Rs.10000</p> -->
-            </div>
-        </div>   
-    </div>
-    <?php } else{?>
+                <?php  } ?>
+            </div>   
+        </div>
+    <?php } else { ?>
+        <h1 class="m-5 text-center">No transactions done yet.</h1>
+        <?php } ?>
+    <?php } else {?>
         <h1 class="text-center m-5">No such User found</h1>
     <?php }?> 
     <?php include("Templates/footer.php");?>
