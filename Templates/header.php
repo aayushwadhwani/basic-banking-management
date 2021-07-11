@@ -7,7 +7,7 @@
     <div class="navbar-collapse collapse" id="navbarScroll">
       <ul class="navbar-nav ml-auto mr-3">
         <li class="nav-item">
-          <a class="nav-link navbar-color" href="">view-tractions</a>
+          <a class="nav-link navbar-color" href="viewTransactions.php">view-tractions</a>
         </li>
         <li class="nav-item">
           <a class="nav-link navbar-color" href="">make-transactions</a>
