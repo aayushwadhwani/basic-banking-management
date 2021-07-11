@@ -12,26 +12,7 @@
     <link rel="stylesheet" href="Styles/info-page.css?v=<?php echo time(); ?>">
     <title>Information |</title>
 </head>
-<?php
-    include('config/db_connect.php');
-    $details = "";
-    if(isset($_GET['id'])){
-        $id = mysqli_real_escape_string($conn,$_GET['id']);
-        $query = "SELECT * FROM users WHERE id=$id";
-        $result = mysqli_query($conn,$query);
-        if($result){
-            $details = mysqli_fetch_assoc($result);
-        }else{
-            echo "Query Error: ".mysqli_error($conn);
-        }
-        $query = "SELECT * FROM transactions WHERE from_id=$id";
-        $result = mysqli_query($conn,$query);
-        $transactionHistory = mysqli_fetch_all($result,MYSQLI_ASSOC);
-        print_r($transactionHistory);
-    }
-    mysqli_free_result($result);
-
-?>
+<?php include("data/getInfo.php") ?>
 <body>
     <?php include("Templates/header.php");?>
     <?php if($details) {?>
@@ -50,12 +31,7 @@
         <div class="container-fluid w-75 p-5 mx-auto">
             <div class="row p-3 rounded">
                 <?php foreach($transactionHistory as $transaction) { ?>
-                    <?php 
-                        $to_id = $transaction['to_id'];
-                        $query = "SELECT email from users where id=$to_id";
-                        $result = mysqli_query($conn,$query);
-                        $emailOfReciever = mysqli_fetch_assoc($result);
-                    ?>
+                    <?php include("data/getTransaction.php") ?>
                     <div class="col-12 my-3 p-3 bg-light">
                         <div class="row text-center font-p">
                             <div class="col-4">

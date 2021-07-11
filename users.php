@@ -12,26 +12,13 @@
     <link rel="stylesheet" href="Styles/userpage.css?v=<?php echo time(); ?>">
     <title>Users Details</title>
 </head>
-<?php
-    $users = "";
-    include('config/db_connect.php');
-    $query = "SELECT * FROM users;";
-    $result = mysqli_query($conn,$query);
-    if($result){
-        $users = mysqli_fetch_all($result,MYSQLI_ASSOC);
-    }else{
-        // echo "Query error: ".mysqli_error($conn);
-        $users = false;
-    }
-    mysqli_free_result($result);
-    mysqli_close($conn);
-?>
+<?php include("data/getUsers.php") ?>
 <body>
     <?php include('templates/header.php');?>
     <div class="container-fluid width-container">
         <?php if($users) {?>
         <div class="row user-div">
-            <?php foreach($users as $user){ ?>
+            <?php foreach($users as $user) { ?>
             <div class="col-12 bg-light mt-5 mb-2 w-100 rounded">
                 <div class="container text-center">
                     <div class="row justify-content-around  details-adjust">
