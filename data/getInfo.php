@@ -13,7 +13,7 @@
         $query = "SELECT * FROM transactions WHERE from_id=$id";
         $result = mysqli_query($conn,$query);
         $transactionHistory = mysqli_fetch_all($result,MYSQLI_ASSOC);
-        print_r($transactionHistory);
+        // print_r($transactionHistory);
     }
     mysqli_free_result($result);
 ?>

@@ -15,43 +15,47 @@
 <?php include("data/makeTransaction.php") ?>
 <body>
     <?php include('Templates/header.php'); ?>
-    <div class="container-fluid w-75 bg-light text-dark mt-5">
-        <div class="row p-3">
-            <div class="col-4 text-center">
-                <h4>From: <?php echo $infoOfSender['username']; ?> </h4>
-            </div>
-            <div class="col-4">
-                <h4>Current Balance: Rs. <?php echo $infoOfSender['amount']; ?> </h4>
-            </div>
-            <div class="col-4">
-                <h4>Email: <?php echo $infoOfSender['email']; ?></h4>
+    <?php if(isset($_GET['id'])) { ?>
+        <div class="container-fluid w-75 bg-light text-dark mt-5">
+            <div class="row p-3">
+                <div class="col-4 text-center">
+                    <h4>From: <?php echo $infoOfSender['username']; ?> </h4>
+                </div>
+                <div class="col-4">
+                    <h4>Current Balance: Rs. <?php echo $infoOfSender['amount']; ?> </h4>
+                </div>
+                <div class="col-4">
+                    <h4>Email: <?php echo $infoOfSender['email']; ?></h4>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container w-50 text-center bg-light text-dark p-4 m-5 ml-auto mr-auto rounded">
-        <form action="transaction.php?id=<?php echo $id ?>" class="form-validation" method="POST">
-            <input type="hidden" name="from" value=<?php echo $infoOfSender['email']; ?>>
-            <p class="mb-0">
-                <label for="email">To: (Email)</label>
-            </p>
-            <p class="mt-0">
-                <input type="email" name="to" placeholder="maria@gmail.com">
-            </p>
-            <p class="text-danger"> <?php echo $errors['to']; ?> </p>
-            <p class="mb-0">
-                <label for="email">Amount:</label>
-            </p>
-            <p class="mt-0">
-                <input type="number" name="amount" placeholder="12345">
-            </p>
-            <p class="text-danger"> <?php echo $errors['amount']; ?> </p>
-            <p class="mt-0">
-                <input type="submit" value="Make Transaction" name="makeTransaction">
-            </p>
-        </form>
-        <p class="text-danger"> <span class="font-weight-bold">Note:</span> Email Should have a domain and less than 60 characters long. Also can't transfer money to <?php echo $infoOfSender['email']; ?> </p>
-        <p class="text-danger"><span class="font-weight-bold">Note:</span>Amount cannot be negative. Also can't transfer money to <?php echo $infoOfSender['email']; ?> </p>
-    </div>
+        <div class="container w-50 text-center bg-light text-dark p-4 m-5 ml-auto mr-auto rounded">
+            <form action="transaction.php?id=<?php echo $id ?>" class="form-validation" method="POST">
+                <input type="hidden" name="from" value=<?php echo $infoOfSender['email']; ?>>
+                <p class="mb-0">
+                    <label for="email">To: (Email)</label>
+                </p>
+                <p class="mt-0">
+                    <input type="email" name="to" placeholder="maria@gmail.com">
+                </p>
+                <p class="text-danger"> <?php echo $errors['to']; ?> </p>
+                <p class="mb-0">
+                    <label for="email">Amount:</label>
+                </p>
+                <p class="mt-0">
+                    <input type="number" name="amount" placeholder="12345">
+                </p>
+                <p class="text-danger"> <?php echo $errors['amount']; ?> </p>
+                <p class="mt-0">
+                    <input type="submit" value="Make Transaction" name="makeTransaction">
+                </p>
+            </form>
+            <p class="text-danger"> <span class="font-weight-bold">Note:</span> Email Should have a domain and less than 60 characters long. Also can't transfer money to <?php echo $infoOfSender['email']; ?> </p>
+            <p class="text-danger"><span class="font-weight-bold">Note:</span>Amount cannot be negative. Also can't transfer money to <?php echo $infoOfSender['email']; ?> </p>
+        </div>
+    <?php } else { ?>
+        
+    <?php } ?>
     <script src="script/transaction-regex.js?<?php echo time(); ?>"></script>
     <?php include('Templates/footer.php'); ?>
 </body>
