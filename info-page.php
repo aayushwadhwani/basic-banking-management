@@ -10,7 +10,11 @@
 
     <link rel="stylesheet" href="Styles/navbar.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="Styles/info-page.css?v=<?php echo time(); ?>">
-    <title>Information |</title>
+    <!-- fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <title>Information</title>
 </head>
 <?php include("data/getInfo.php") ?>
 <body>

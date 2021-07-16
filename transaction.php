@@ -10,13 +10,17 @@
 
     <link rel="stylesheet" href="Styles/navbar.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="Styles/transaction.css?v=<?php echo time(); ?>">
+    <!-- fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <?php include("data/makeTransaction.php") ?>
 <body>
     <?php include('Templates/header.php'); ?>
     <?php if(isset($_GET['id'])) { ?>
-        <div class="container-fluid w-75 bg-light text-dark mt-5">
+        <div class="container-fluid w-50 bg-light text-dark mt-5">
             <div class="row p-3">
                 <div class="col-4 text-center">
                     <h4>From: <?php echo $infoOfSender['username']; ?> </h4>

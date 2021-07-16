@@ -10,9 +10,13 @@
 
     <link rel="stylesheet" href="Styles/navbar.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="Styles/userpage.css?v=<?php echo time(); ?>">
+    <!-- fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <title>Users Details</title>
 </head>
-<?php include("data/getUsers.php") ?>
+<?php include("data/getUsers.php"); ?>
 <body>
     <?php include('templates/header.php');?>
     <div class="container-fluid width-container">

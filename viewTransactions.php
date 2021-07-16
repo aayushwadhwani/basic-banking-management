@@ -11,6 +11,10 @@
 
     <link rel="stylesheet" href="Styles/navbar.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="Styles/transaction.css?v=<?php echo time(); ?>">
+    <!-- fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
 </head>
 <?php include("data/getAllTransactions.php"); ?>
 <body>
