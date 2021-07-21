@@ -20,7 +20,7 @@
 <body>
     <?php include('Templates/header.php'); ?>
     <?php if(isset($_GET['id'])) { ?>
-        <div class="container-fluid w-50 bg-light text-dark mt-5">
+        <div class="container-fluid w-75 bg-light text-dark mt-5">
             <div class="row p-3">
                 <div class="col-4 text-center">
                     <h4>From: <?php echo $infoOfSender['username']; ?> </h4>

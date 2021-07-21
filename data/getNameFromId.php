@@ -11,4 +11,5 @@
     $from_name = mysqli_fetch_assoc($result);
     mysqli_free_result($result);
     mysqli_close($conn);
+    $time = new DateTime($transaction['transactionDate'], new DateTimeZone('IST'));
 ?>

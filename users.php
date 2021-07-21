@@ -18,7 +18,7 @@
 </head>
 <?php include("data/getUsers.php"); ?>
 <body>
-    <?php include('templates/header.php');?>
+    <?php include('Templates/header.php');?>
     <div class="container-fluid width-container">
         <?php if($users) {?>
         <div class="row user-div">
@@ -56,6 +56,6 @@
             <h1 class="text-center m-5 text-danger font-weight-bolder">Not connected to database.</h1>
         <?php }?>
     </div>
-    <?php include('templates/footer.php');?>
+    <?php include('Templates/footer.php');?>
 </body>
 </html>

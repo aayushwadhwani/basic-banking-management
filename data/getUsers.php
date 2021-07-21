@@ -1,7 +1,7 @@
 <?php
     $users = "";
     include('config/db_connect.php');
-    $query = "SELECT * FROM users;";
+    $query = "SELECT * FROM users order by username;";
     $result = mysqli_query($conn,$query);
     if($result){
         $users = mysqli_fetch_all($result,MYSQLI_ASSOC);

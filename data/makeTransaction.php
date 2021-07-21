@@ -23,7 +23,6 @@
         $from = $infoOfSender['email'];
         $errors = array('to'=>'','amount'=>'');
         if (isset($_POST['makeTransaction'])) {
-            echo htmlspecialchars($_POST['to']);
             if(empty($_POST['to'])){
                 $errors['to'] = "Email field can't be Empty.";
             }else{
@@ -59,10 +58,8 @@
                     $amount_current = $amount_current - $amount;
                     $query = "update users set amount=$amount_current where id=$from_id";
                     $result = mysqli_query($conn,$query);
-                    mysqli_free_result($result);
                     $query = "update users set amount=$amount_current_to where id=$to_id";
                     $result = mysqli_query($conn,$query);
-                    mysqli_free_result($result);
 
                     $query = "insert into transactions(from_id,to_id,amount) values($from_id,$to_id,$amount)";
                     if(mysqli_query($conn,$query)){

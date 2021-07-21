@@ -18,8 +18,37 @@
     <title>Home Page</title>
 </head>
 <body>
-    <?php include('templates/header.php'); ?>
-    <?php include('templates/footer.php'); ?>
+    <?php include('Templates/header.php'); ?>
+    <div class="row width m-auto p-5">
+        <div class="col-6 mt-5">
+            <div class="container text-center">
+                <h1 class="m-2">
+                    Hello Users
+                </h1>
+                <h3 class="mb-5">
+                    A Basic Banking Management System
+                </h3>
+            </div>
+            <div class="p-5">
+                <h2>
+                    <span class="mr-2" ><i class="fas fa-clipboard-list"></i></span>
+                    Highlighted Feactures
+                </h2>
+                <ul class="list-unstyled font-weight-bold text-left" >
+                    <li><span class="mr-4"><i class="fas fa-check"></i></span>User Creation</li>
+                    <li><span class="mr-4"><i class="fas fa-check"></i></span>See All Users</li>
+                    <li><span class="mr-4"><i class="fas fa-check"></i></span>Do A transaction</li>
+                    <li><span class="mr-4"><i class="fas fa-check"></i></span>User-Info-Page</li>
+                    <li><span class="mr-4"><i class="fas fa-check"></i></span>transaction-History</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-6 text-center">
+            <img src="img/home.svg" alt="" width="500" height="500">
+        </div>
+    </div>
+    <?php include('Templates/footer.php'); ?>
+    <script src="https://kit.fontawesome.com/56bbfc97eb.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js?v=<?php echo time(); ?>"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>

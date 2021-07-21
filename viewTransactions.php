@@ -37,7 +37,7 @@
                     <h4>Amount: Rs. <?php echo $transaction['amount']; ?> </h4>
                 </div>
                 <div class="col-6 mt-2">
-                    <h4>At: <?php echo $transaction['transactionDate']; ?></h4>
+                    <h4>At: <?php echo $time->format('Y/m/d');?></h4>
                 </div>
             </div>
             <?php } ?>
